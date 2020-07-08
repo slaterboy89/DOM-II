@@ -65,12 +65,30 @@ newNav[3].addEventListener('click', (event) => {
     event.target.style.color = 'grey'
 })
 
-window.addEventListener('beforeunload', (event) => {
-    return ''
+const newBack = document.querySelector('html')
+newBack.addEventListener('dblclick', (event) => {
+    event.target.style.backgroundColor = 'grey'
 })
 
-const card = document.querySelectorAll('p');
+const alertOnScroll = document.querySelector('html')
+alertOnScroll.addEventListener('wheel', (event) => {
+    alert('Help Me!!!!!!')
+})
 
-card[0].addEventListener('dblclick', (event) => {
-  event.target.style.transform(scale(1.3));
-});
+document.addEventListener('keydown', (event) => {
+    if(event.key === 'Escape'){
+        alert('Are you sure you want to leave?')
+    }
+})
+
+window.addEventListener('load', (event) => {
+    alert('page is fully loaded');
+  });
+
+  window.addEventListener('beforeunload', (event) => {
+    alert("Did you save your stuff?")
+})
+
+window.onbeforeunload = function() {
+    return "Are you sure?";
+ };
