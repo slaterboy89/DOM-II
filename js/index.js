@@ -86,9 +86,13 @@ window.addEventListener('load', (event) => {
   });
 
   window.addEventListener('beforeunload', (event) => {
-    alert("Did you save your stuff?")
+      event.preventDefault();
+      event.returnValue = 'Are you Sure?';
 })
 
-window.onbeforeunload = function() {
-    return "Are you sure?";
- };
+const log = document.querySelector('html');
+
+document.addEventListener('keypress', (event) => {
+
+  alert(`The Key ${event.key} was pressed.`)
+})
